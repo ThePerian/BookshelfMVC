@@ -1,4 +1,4 @@
-﻿using PropertyChanged;
+﻿//using PropertyChanged; from Fody
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BookshelfDALEF.Models
 {
-    [AddINotifyPropertyChangedInterface]
+    //[AddINotifyPropertyChangedInterface] from Fody
     public abstract class EntityBase : INotifyDataErrorInfo, IDataErrorInfo
     {
         [Timestamp]
