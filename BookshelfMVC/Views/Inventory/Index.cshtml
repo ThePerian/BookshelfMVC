@@ -1,15 +1,31 @@
 ﻿@model IEnumerable<BookshelfDALEF.Models.Inventory>
+@using BookshelfDALEF.Models
+@helper ShowInventory(Inventory item)
+{
+    @item.Author<text>-</text>@item.BookName<text>(</text>@item.ReadStatus<text>)</text>
+}
+@functions
+{
+    public IList<Inventory> SortBooks(IList<Inventory> books)
+    {
+        var list = from b in books orderby b.Author select b;
+        return list.ToList();
+    }
+}
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="well well-sm"><h1>Available inventory</h1></div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create")">
+        <span class="glyphicon glyphicon-plus"></span>&nbsp;Add a new book
+    </a>
 </p>
-<table class="table">
+<table class="table table-striped table-bordered table-responsive table-hover">
+    <caption>Book List</caption>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Author)
@@ -20,13 +36,12 @@
         <th>
             @Html.DisplayNameFor(model => model.ReadStatus)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Timestamp)
-        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in SortBooks(Model.ToList()))
+{
+    @*@ShowInventory(item)*@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Author)
@@ -38,12 +53,17 @@
             @Html.DisplayFor(modelItem => item.ReadStatus)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Timestamp)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookId })
+            <a href="@Url.Action("Edit", new { id = item.BookId})">
+                <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
+            </a>
+            &nbsp;|&nbsp;
+            <a href="@Url.Action("Details", new { id = item.BookId})">
+                <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Details
+            </a>
+            &nbsp;|&nbsp;
+            <a href="@Url.Action("Delete", new { id = item.BookId})">
+                <span class="glyphicon glyphicon-trash"></span>&nbsp;Delete
+            </a>
         </td>
     </tr>
 }

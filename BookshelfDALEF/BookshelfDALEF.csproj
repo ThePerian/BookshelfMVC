@@ -65,6 +65,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\Inventory.cs" />
+    <Compile Include="Models\MetaData\InventoryMetaData.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Partials\InventoryPartial.cs" />
     <Compile Include="Models\Store.cs" />
