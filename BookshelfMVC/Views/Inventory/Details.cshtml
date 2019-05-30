@@ -1,0 +1,50 @@
+﻿@model BookshelfDALEF.Models.Inventory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Inventory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReadStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReadStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timestamp)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

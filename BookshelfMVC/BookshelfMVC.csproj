@@ -175,10 +175,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905301511529_InitialMVC.cs" />
+    <Compile Include="Migrations\201905301511529_InitialMVC.Designer.cs">
+      <DependentUpon>201905301511529_InitialMVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -241,6 +247,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Inventory\Create.cshtml" />
+    <Content Include="Views\Inventory\Delete.cshtml" />
+    <Content Include="Views\Inventory\Details.cshtml" />
+    <Content Include="Views\Inventory\Edit.cshtml" />
+    <Content Include="Views\Inventory\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -263,6 +274,11 @@
       <Project>{a0a07271-acf1-4240-864c-65e95f72ecca}</Project>
       <Name>BookshelfDALEF</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905301511529_InitialMVC.resx">
+      <DependentUpon>201905301511529_InitialMVC.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
