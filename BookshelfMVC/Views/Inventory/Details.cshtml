@@ -4,10 +4,9 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="well well-sm"><h1>Inventory Details</h1></div>
 
 <div>
-    <h4>Inventory</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -34,17 +33,18 @@
             @Html.DisplayFor(model => model.ReadStatus)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Timestamp)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Timestamp)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.BookId }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Url.Action("Edit", new { id = Model.BookId})">
+        <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
+    </a>
+    &nbsp;|&nbsp;
+    <a href="@Url.Action("Delete", new { id = Model.BookId})">
+        <span class="glyphicon glyphicon-trash"></span>&nbsp;Delete
+    </a>
+    &nbsp;|&nbsp;
+    <a href="@Url.Action("Index", new { id = Model.BookId})">
+        <span class="glyphicon glyphicon-list"></span>&nbsp;Back to list
+    </a>
 </p>
