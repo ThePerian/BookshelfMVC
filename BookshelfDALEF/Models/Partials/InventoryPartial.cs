@@ -33,18 +33,9 @@ namespace BookshelfDALEF.Models
                         errors = GetErrorsFromAnnotaions(nameof(BookId), BookId);
                         break;
                     case nameof(Author):
-                        hasError = CheckAuthorAndBookName();
-                        if (Author.ToLower().Contains("роулинг"))
-                        {
-                            AddError(nameof(Author), "Указан недопустимый автор");
-                            hasError = true;
-                        }
-                        if (!hasError) ClearErrors(nameof(Author));
                         errors = GetErrorsFromAnnotaions(nameof(Author), Author);
                         break;
                     case nameof(BookName):
-                        hasError = CheckAuthorAndBookName();
-                        if (!hasError) ClearErrors(nameof(BookName));
                         errors = GetErrorsFromAnnotaions(nameof(BookName), BookName);
                         break;
                     case nameof(ReadStatus):

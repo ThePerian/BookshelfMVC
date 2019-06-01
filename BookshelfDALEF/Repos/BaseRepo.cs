@@ -21,13 +21,13 @@ namespace BookshelfDALEF.Repos
             {
                 return Context.SaveChanges();
             }
-            catch(DbUpdateConcurrencyException ex)
+            catch(DbUpdateConcurrencyException)
             {
                 //Генерируется, когда возникла ошибка параллелизма
                 //пока что просто сгенерировать исключение повторно
                 throw;
             }
-            catch(DbUpdateException ex)
+            catch(DbUpdateException)
             {
                 //Генерируется, когда обновление базы данных терпит отказ
                 //Проверить внутреннее исключение, чтобы получить дополнительные
@@ -35,13 +35,13 @@ namespace BookshelfDALEF.Repos
                 //пока что просто сгенерировать исключение повторно
                 throw;
             }
-            catch(CommitFailedException ex)
+            catch(CommitFailedException)
             {
                 //Обработать здесь ошибки, связанные с транзакцией
                 //пока что просто сгенерировать исключение повторно
                 throw;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 //Были сгенерированы какие-то другие исключения,
                 //которые должны быть обработаны
@@ -55,13 +55,13 @@ namespace BookshelfDALEF.Repos
             {
                 return await Context.SaveChangesAsync();
             }
-            catch (DbUpdateConcurrencyException ex)
+            catch (DbUpdateConcurrencyException)
             {
                 //Генерируется, когда возникла ошибка параллелизма
                 //пока что просто сгенерировать исключение повторно
                 throw;
             }
-            catch (DbUpdateException ex)
+            catch (DbUpdateException)
             {
                 //Генерируется, когда обновление базы данных терпит отказ
                 //Проверить внутреннее исключение, чтобы получить дополнительные
@@ -69,13 +69,13 @@ namespace BookshelfDALEF.Repos
                 //пока что просто сгенерировать исключение повторно
                 throw;
             }
-            catch (CommitFailedException ex)
+            catch (CommitFailedException)
             {
                 //Обработать здесь ошибки, связанные с транзакцией
                 //пока что просто сгенерировать исключение повторно
                 throw;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //Были сгенерированы какие-то другие исключения,
                 //которые должны быть обработаны
