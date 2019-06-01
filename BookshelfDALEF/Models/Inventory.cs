@@ -11,7 +11,7 @@ namespace BookshelfDALEF.Models
         [Key]
         public int BookId { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Please enter a value less than 50 characters long.")]
         public string Author { get; set; }
 
         [StringLength(50)]

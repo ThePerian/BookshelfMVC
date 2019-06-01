@@ -52,7 +52,11 @@ namespace BookshelfMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Author,BookName,ReadStatus")] Inventory inventory)
         {
-            if (!ModelState.IsValid) { return View(inventory); }
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError(string.Empty, "An error occured in the data. Please check all values and try again.");
+                return View(inventory);
+            }
             try
             {
                 await _repo.AddAsync(inventory);
